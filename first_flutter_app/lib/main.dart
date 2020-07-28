@@ -1,4 +1,5 @@
 import 'package:first_flutter_app/models/student.dart';
+import 'package:first_flutter_app/screens/student_add.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,7 +9,10 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeScreen());
+    return MaterialApp(
+      home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
 
@@ -91,7 +95,10 @@ class _HomeScreenState extends State {
                     Text("Yeni Ögrenci")
                   ],
                 ),
-                onPressed: () => print("Yeni Öğrenci"),
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => StudentAdd(students))),
               ),
             ),
             Flexible(
